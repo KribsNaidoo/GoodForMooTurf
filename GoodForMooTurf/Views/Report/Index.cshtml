@@ -1,0 +1,21 @@
+﻿@model IEnumerable<GoodForMooTurf.Models.ReportData>
+
+@{
+    ViewData["Title"] = "Report";
+}
+
+<h4>Order Item Form</h4>
+<hr />
+<div class="form-row">
+        <div class="form-group col-md-4" style="width: 20rem;">
+            <a asp-action="CustomerOrderCount" class="btn spectral btn-secondary  btn-block cbb"><i class="fa fa-table"></i>Total Orders Per Client</a>
+        </div>
+
+        <div class="form-group col-md-4" style="width: 20rem;">
+            <a asp-action="CustomerOrderValue" class="btn spectral btn-secondary  btn-block cbb"><i class="fa fa-table"></i>Total Order Value Per Client</a>
+        </div>
+
+        <div class="form-group col-md-4" style="width: 20rem;">
+            <a asp-action="AverageCustomerOrderValue" class="btn spectral btn-secondary  btn-block cbb"><i class="fa fa-table"></i>Total Order Value Average Per Client</a>
+        </div>
+</div>

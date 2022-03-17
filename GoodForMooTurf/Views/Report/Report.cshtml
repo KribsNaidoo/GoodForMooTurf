@@ -1,0 +1,37 @@
+﻿@model IEnumerable<GoodForMooTurf.Models.ReportData>
+
+@{
+    ViewData["Title"] = "Report";
+}
+<br />
+<h2>@TempData["Header"]</h2>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="form-row">
+    <div  class="form-group col-md-3">
+        <a asp-action="Index"  class="btn btn-secondary btn-block"><i class="fa fa-table"></i>Back to Report</a>
+    </div>
+</div>

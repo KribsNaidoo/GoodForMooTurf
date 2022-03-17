@@ -1,0 +1,67 @@
+﻿@model IEnumerable<GoodForMooTurf.Models.OrderItem>
+
+@{
+    ViewData["Title"] = "Order Items List";
+}
+
+<h2>Order Items List</h2>
+
+<table id="dtLineItems" class="cell-border compact stripe">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitCostAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-success"><i class="far fa-plus-square"></i>Create</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitCostAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.Id" class="btn btn-primary"><i></i>Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i></i>Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="form-row">
+    <a asp-controller="Order" asp-action="Index" class="btn btn-primary"><i class="fa fa-table"></i> Back to Order</a>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $.noConflict(); 
+    jQuery( document ).ready(function( $ ) {
+        $('#dtLineItems').DataTable();
+    });
+</script>
